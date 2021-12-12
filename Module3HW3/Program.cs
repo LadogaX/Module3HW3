@@ -21,7 +21,7 @@ namespace Module3HW3
             Func<double, double, double> powHandler = class1.Pow;
             Predicate<double> predicate = class2.Calc(powHandler, 4.0, 5.0);
 
-            class1.ShowHandler(predicate.Invoke(3));
+            class1.ShowHandler?.Invoke(predicate.Invoke(3));
         }
 
         public class Class1
@@ -36,10 +36,10 @@ namespace Module3HW3
 
         public class Class2
         {
-            public static double CalcResult { get; private set; }
+            public static double? CalcResult { get; private set; }
             public Predicate<double> Calc(Func<double, double, double> func, double x, double y)
             {
-                CalcResult = func.Invoke(x, y);
+                CalcResult = func?.Invoke(x, y);
                 Predicate<double> resultHandler = Result;
 
                 return resultHandler;
